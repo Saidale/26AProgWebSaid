@@ -1,0 +1,33 @@
+/* SAID ALEJANDRO NUÑEZ RODRIGUEZ  */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #d81d1dbc;
+}
+
+.Caja {
+    width: 200px;
+    background-color: lightblue;
+    border: 2px solid blue;
+    margin: 10px;
+    padding: 10px;
+}
+
+#Caja1 {
+    font-size: 30px;
+}
+
+#Caja2 {
+    border: 10px solid red;
+}
+
+#Caja3 {
+  border: 10px solid orchid;
+}
