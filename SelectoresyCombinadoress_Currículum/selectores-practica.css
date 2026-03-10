@@ -9,3 +9,8 @@ p {
 .experiencia {
     border: 1px dotted red ;
 }
+
+a[target="_blank"]::after {
+    content: " 🔗"; 
+    text-decoration: none; 
+}
