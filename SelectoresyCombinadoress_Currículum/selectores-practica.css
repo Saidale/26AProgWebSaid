@@ -14,3 +14,7 @@ a[target="_blank"]::after {
     content: " 🔗"; 
     text-decoration: none; 
 }
+
+#experiencia p {
+    font-size: 0.9rem;
+}
