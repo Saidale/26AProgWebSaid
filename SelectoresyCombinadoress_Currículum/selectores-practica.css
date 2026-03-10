@@ -22,3 +22,7 @@ a[target="_blank"]::after {
 #experienncia > ul > li {
     list-style-type: square;
 }
+
+h2 + p {
+    margin-top: 0;
+}
