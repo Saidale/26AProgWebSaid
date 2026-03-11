@@ -1,0 +1,24 @@
+/* Especificidad: 0,0,0,1 */
+p { 
+    color: black; 
+} 
+
+/* Especificidad: 0,0,1,0 */
+.destacado { 
+    color: purple; 
+} 
+
+/* Especificidad: 0,1,0,0 */
+#principal { 
+    color: blue; 
+} 
+
+/* Especificidad: 0,1,1,0 */
+#principal.destacado { 
+    color: cyan; 
+} 
+
+/* Especificidad: 0,1,1,0 (Descendiente) */
+#principal .destacado { 
+    color: green; 
+}
