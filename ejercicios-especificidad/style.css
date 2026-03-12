@@ -1,0 +1,287 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 30px;
+  background: #f5f5f5;
+  color: #222;
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+
+.bloque {
+  background: #ffffff;
+  border: 1px solid #dcdcdc;
+  padding: 20px;
+  margin-bottom: 25px;
+  border-radius: 10px;
+}
+
+.bloque h2 {
+  margin-top: 0;
+}
+
+/* =========================
+   EJERCICIO 1
+========================= */
+#contenedor-e1 p {
+  color: black; /* 1 */
+}
+
+#contenedor-e1 .texto {
+  color: blue; /* 2 */
+}
+
+#contenedor-e1 p {
+  color: green; /* 3 */
+}
+
+#parrafo {
+  color: red; /* 4 */
+}
+
+#contenedor-e1 .texto {
+  color: purple; /* 5 */
+}
+
+/* Para Texto 3 fuera del contenedor */
+.bloque > .texto {
+  color: blue;
+}
+
+/* =========================
+   EJERCICIO 2
+========================= */
+.lista-e2 li {
+  color: gray; /* 1 */
+}
+
+.lista-e2 .item {
+  color: olive; /* 2 */
+}
+
+#primero {
+  color: navy; /* 3 */
+}
+
+.lista-e2 ul li.item {
+  color: teal; /* 4 - esta no aplica porque no hay ul dentro de .lista-e2 */
+}
+
+/* Versión funcional para que veas el resultado esperado del ejercicio */
+.lista-e2 li.item {
+  color: teal; /* equivalente visual */
+}
+
+li#primero.item {
+  color: fuchsia; /* 5 */
+}
+
+/* =========================
+   EJERCICIO 3
+========================= */
+#main-e3 p {
+  color: silver; /* 1 */
+}
+
+#main-e3 .resaltado {
+  color: gold; /* 2 */
+}
+
+#main-e3 p {
+  color: lime; /* 3 */
+}
+
+#main-e3 .caja p {
+  color: aqua; /* 4 */
+}
+
+#main-e3 .caja .resaltado {
+  color: coral; /* 5 */
+}
+
+#main-e3 .resaltado {
+  color: indigo; /* 6 */
+}
+
+/* =========================
+   EJERCICIO 4
+========================= */
+.articulo-e4 article p {
+  color: brown; /* 1 - no aplica porque no hay article dentro de .articulo-e4 */
+}
+
+/* Versión funcional equivalente */
+.articulo-e4 p {
+  color: brown;
+}
+
+.contenido {
+  color: chocolate; /* 2 */
+}
+
+#ultimo {
+  color: crimson; /* 3 */
+}
+
+.articulo-e4 .contenido {
+  color: darkcyan; /* 4 */
+}
+
+p#ultimo.contenido {
+  color: darkgoldenrod; /* 5 */
+}
+
+/* =========================
+   EJERCICIO 5
+========================= */
+.nav-e5 a {
+  color: darkblue; /* 1 */
+}
+
+.menu a {
+  color: darkgreen; /* 2 */
+}
+
+.nav-e5 ul li a {
+  color: darkmagenta; /* 3 */
+}
+
+#contacto {
+  color: darkorange; /* 4 */
+}
+
+.menu li a.enlace {
+  color: darkred; /* 5 */
+}
+
+/* =========================
+   EJERCICIO 6
+========================= */
+#padre div {
+  color: darksalmon; /* 1 */
+}
+
+.hijo {
+  color: darkseagreen; /* 2 */
+}
+
+#padre .hijo {
+  color: darkslateblue; /* 3 */
+}
+
+#padre > .hijo {
+  color: darkslategray; /* 4 */
+}
+
+#padre .hijo .nieto {
+  color: darkturquoise; /* 5 */
+}
+
+/* =========================
+   EJERCICIO 7
+========================= */
+input {
+  border: 1px solid black; /* 1 */
+  padding: 8px;
+  margin: 5px;
+  display: block;
+}
+
+.campo {
+  border: 2px solid blue; /* 2 */
+}
+
+#registro input {
+  border: 3px solid green; /* 3 */
+}
+
+input[type="submit"] {
+  border: 4px solid red; /* 4 */
+  background: white;
+  cursor: pointer;
+}
+
+#btn {
+  border: 5px solid purple; /* 5 */
+}
+
+/* =========================
+   EJERCICIO 8
+========================= */
+.card {
+  background: lightgray; /* 1 */
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+}
+
+#card1 .card-title {
+  color: maroon; /* 2 */
+}
+
+#card2 .card-text {
+  color: mediumblue; /* 3 */
+}
+
+.card .card-title {
+  color: mediumvioletred; /* 4 */
+}
+
+.card .card-text {
+  color: midnightblue; /* 5 */
+}
+
+/* =========================
+   EJERCICIO 9
+========================= */
+.main-e9 p {
+  color: navy; /* 1 */
+}
+
+.main-e9 .seccion p {
+  color: olive; /* 2 */
+}
+
+#s1 p {
+  color: orange; /* 3 */
+}
+
+#s1 .especial {
+  color: orchid; /* 4 */
+}
+
+.main-e9 .seccion p {
+  color: palegreen; /* 5 */
+}
+
+.main-e9 .seccion .especial {
+  color: paleturquoise; /* 6 */
+}
+
+/* =========================
+   EJERCICIO 10
+========================= */
+#contenedor p {
+  color: peru; /* 1 */
+}
+
+.destacado {
+  color: pink; /* 2 */
+}
+
+#contenedor p {
+  color: plum; /* 3 */
+}
+
+#contenedor .destacado {
+  color: powderblue; /* 4 */
+}
+
+.contenedor .interno p {
+  color: rebeccapurple; /* 5 */
+}
+
+#contenedor .interno .destacado {
+  color: rosybrown; /* 6 */
+}

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ejercicios de Especificidad CSS</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h1>Ejercicios de especificidad CSS</h1>
+    <h1>Said Alejandro Nuñez Rodrigez</h1>
+    <h1>8vo A</h1>
+    <!-- Ejercicio 1 -->
+    <section class="bloque">
+        <h2>Ejercicio 1</h2>
+        <div id="contenedor-e1">
+        <p class="texto" id="parrafo">Texto 1</p>
+        <p class="texto">Texto 2</p>
+        </div>
+        <p class="texto">Texto 3</p>
+
+
+        <p>- pregunta 1: Se ven de color rojo, morado y azul</p>
+
+        <p>- Pregunta 2:Regla 1: p { color: black; }  (0,0,0,1)
+        Regla 2: .texto { color: blue; }  (0,0,1,0)
+        Regla 3: #contenedor p { color: green; }  (0,1,0,1)
+        Regla 4: #parrafo { color: red; }  (0,1,0,0)
+        Regla 5: #contenedor .texto { color: purple; }  (0,1,1,0)</p>
+
+
+        <p>- pregunta 3: #parrafo tiene una especificidad de (0, 1, 0, 0), si bien la relga 3 y 5 tiene la misma especificidad CSS al ser de cascada, aplica el ultimo estilo, por eso es morado, el texto 3 por descarte es azul, no esta dentro del div contenedor</p>
+    </section>
+
+    <!-- Ejercicio 2 -->
+    <section class="bloque">
+        <h2>Ejercicio 2</h2>
+        <ul class="lista-e2">
+        <li class="item" id="primero">Elemento 1</li>
+        <li class="item">Elemento 2</li>
+        <li>Elemento 3</li>
+        </ul>
+
+
+        <p>- pregunta 1: el primero se ve de color fuschia, el segundo teal  y el ultimo es gray.</p>
+        <p>- pregunta 2: (0, 1, 1, 1)</p>
+        <p>- pregunta 3: Nada ya que la especificidad sigue siendo mayor que los demas</p>
+    </section>
+
+    <!-- Ejercicio 3 -->
+    <section class="bloque">
+        <h2>Ejercicio 3</h2>
+        <section id="main-e3">
+        <div class="caja">
+            <p>Texto A</p>
+            <p class="resaltado">Texto B</p>
+        </div>
+        <p class="resaltado">Texto C</p>
+
+        </section>
+
+        <p>- Determina el color de cada parrafo: aqua, naranja y morado.</p>
+        <p>- Identifique que reglas tienen la misma especificidad y como se resuelve: numero 2 y 6, 1 y 3, se resuelve cuando el ultimo estilo con la misma especificidad se ejecuta, es decir sobreescribe al anterior</p>
+
+    </section>
+
+    <!-- Ejercicio 4 -->
+    <section class="bloque">
+        <h2>Ejercicio 4</h2>
+        <article class="articulo-e4">
+        <h2 class="titulo">Título</h2>
+        <p class="contenido">Párrafo 1</p>
+        <p class="contenido" id="ultimo">Párrafo 2</p>
+        </article>
+
+
+
+        <p>- pregunta 1: titulo se queda con el color por defecto del body, contenido p se ve de color darkcyan,  contenido ultimo se ve de color darkgoldenrok.</p>
+        <p>- pregunta 2: Se aplica la regla numero cinco ya que es la que cuenta con mas especificidad, con id, clase y elemento</p>
+        <p>- pregunta 3: Si, el !important es el mas alto nivel de especificidad, no importa la cantidad de elementos o clases, tiene prioridad</p>
+    </section>
+
+    <!-- Ejercicio 5 -->
+    <section class="bloque">
+        <h2>Ejercicio 5</h2>
+        <nav class="nav-e5">
+        <ul class="menu">
+            <li><a href="#" class="enlace">Inicio</a></li>
+            <li><a href="#">Servicios</a></li>
+            <li><a href="#" id="contacto">Contacto</a></li>
+        </ul>
+        </nav>
+
+
+        <p>- pregunta 1: E1:DARKRED,  E2:DARKMAGENTA y E3:DARKORANGE.</p>
+        <p>- pregunta 2: (0, 0, 2, 2), 2 clases 2 elementos</p>
+        <p>- pregunta 3: El enlace 3, todos tienen sus propios identificadores y el 3 contiene el darkorange</p>
+
+    </section>
+
+    <!-- Ejercicio 6 -->
+    <section class="bloque">
+        <h2>Ejercicio 6</h2>
+        <div id="padre">
+        <div class="hijo">
+            <p class="nieto">Texto X</p>
+        </div>
+        <p class="hijo">Texto Y</p>
+        </div>
+
+        <p>- pregunta 1: x: DARKTURQUOISE, y: DARKSLATEGRAY</p>
+        <p>- pregunta 2: La diferencia clara es que la regla 5, aplica si el elemento esta dentro del padre, es decir, da igual cuantos bloques mas adentro este, en cambio con el otro es directo, es decir que si o si debe estar dentro del padre, si esta dentro de otro elemento ya no se aplica</p>
+        <p>- pregunta 3: (0, 1, 2, 0)</p>
+
+    </section>
+
+    <!-- Ejercicio 7 -->
+    <section class="bloque">
+        <h2>Ejercicio 7</h2>
+        <form id="registro">
+        <input type="text" name="usuario" class="campo" placeholder="Usuario" />
+        <input type="password" name="clave" class="campo" placeholder="Contraseña" />
+        <input type="submit" value="Enviar" id="btn" />
+        </form>
+
+        <p>- pregunta 1: border: 3px solid green </p>
+        <p>- pregunta 2: 
+            <p>Regla 1 (input): (0, 0, 0, 1) </p>
+            <p>Regla 2 (.campo): (0, 0, 1, 0) </p>
+            <p>Regla 4 (input[type="submit"]): (0, 0, 1, 1)  </p>
+            <p>Regla 3 (#registro input): (0, 1, 0, 1) </p>
+            <p>Regla 5 (#btn): (0, 1, 0, 0) </p>
+            </p>
+        <p>- pregunta 3: Todos contendrian el valor de input color negro, ya que important sobreescribe a todos sin importar especificidad </p>
+    </section>
+
+    <!-- Ejercicio 8 -->
+    <section class="bloque">
+        <h2>Ejercicio 8</h2>
+        <div class="card" id="card1">
+        <h3 class="card-title">Título 1</h3>
+        <p class="card-text">Texto 1</p>
+        </div>
+
+        <div class="card" id="card2">
+        <h3 class="card-title">Título 2</h3>
+        <p class="card-text">Texto 2</p>
+        </div>
+
+        <p>- pregunta 1: #card1 Título: maroon, Texto: midnightblue.... #card2 Título: MEDIUMVIOLETRED, Texto: MEDIUMBLUE</p>
+        <p>- pregunta 2: Los dos titulos tanto los dos parrafos tienen la misma especificidad, pero al pertenecer a diferentes id y contenedores, no hay conflicto</p>
+        <p>- pregunta 3: Se cambia a naranja, tiene mayor especificidad</p>
+    </section>
+
+    <!-- Ejercicio 9 -->
+    <section class="bloque">
+        <h2>Ejercicio 9</h2>
+        <main class="main-e9">
+        <section class="seccion" id="s1">
+            <p>Párrafo 1</p>
+            <p class="especial">Párrafo 2</p>
+        </section>
+        <section class="seccion">
+            <p>Párrafo 3</p>
+        </section>
+        </main>
+
+        <p>- pregunta 1: p1 se ve naranja, p2 es orchid y parrafo 3 es palegreen </p>
+        <p>- pregunta 2: La numero 3, ya que cuenta con un ID, el cual tiene mas peso</p>
+        <p>- pregunta 3: (0, 0, 3, 0)</p>
+    </section>
+
+    <!-- Ejercicio 10 -->
+    <section class="bloque">
+        <h2>Ejercicio 10</h2>
+        <div class="contenedor" id="contenedor">
+        <p>Párrafo A</p>
+        <div class="interno">
+            <p class="destacado">Párrafo B</p>
+        </div>
+        <p class="destacado">Párrafo C</p>
+        </div>
+
+        <p>- pregunta 1: A: plum, B: rosybrown, C:powderblue</p>
+        <p>- pregunta 2: Si lo está tomando, de hecho es el que mayo especificidad contiene </p>
+        <p>- pregunta 3: R6, R4, R1=R3, R5, R2 </p>
+    </section>
+</body>
+</html>
