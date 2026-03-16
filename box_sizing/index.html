@@ -31,7 +31,52 @@
 
     </div>
 
-    
+    <main class="seccion-preguntas">
+    <section>
+        <h2>Parte 3</h2>
+        <p><strong>¿Cuántas tarjetas deberían caber en el contenedor?</strong></p>
+        <p>Deberían caber 3 cajas en el contenedor.</p>
+        
+        <p><strong>¿Cuántas realmente caben?</strong></p>
+        <p>Solamente caben 2 cajas como se ve en el código.</p>
+        
+        <p><strong>¿Por qué la tercera tarjeta se baja de línea?</strong></p>
+        <p>Porque el ancho es un valor fijo de 900px, y las 3 cajas juntas necesitan más de 1000px.</p>
+    </section>
+
+    <section>
+        <h2>Parte 6</h2>
+        <p><strong>¿Las 3 tarjetas caben ahora?</strong></p>
+        <p>Sí.</p>
+        
+        <p><strong>¿Por qué?</strong></p>
+        <p>Porque al cambiar a border box la caja ya no crece, ahora ajusta el tamaño de la caja con los padding y border dentro de ella.</p>
+        
+        <p><strong>¿Qué cambió exactamente?</strong></p>
+        <p>La forma de calcular el tamaño de la caja.</p>
+    </section>
+
+    <section>
+        <h2>Parte 7</h2>
+        <p><strong>¿Se rompe el layout sin border box?</strong></p>
+        <p>Sí, regresamos al mismo cálculo, sobrepasa el tamaño del contenedor.</p>
+        
+        <p><strong>¿Funciona correctamente con border box?</strong></p>
+        <p>Sí, el cálculo es perfecto.</p>
+        
+        <p><strong>¿Por qué los frameworks CSS usan Border Box?</strong></p>
+        <p>Porque es un estándar muy flexible para los contenedores.</p>
+    </section>
+
+    <section>
+        <h2>Parte 8</h2>
+        <p><strong>¿Qué sucede con border-box?</strong></p>
+        <p>Se mantiene intacto, las tarjetas están bien alineadas.</p>
+        
+        <p><strong>¿Qué sucede sin border-box?</strong></p>
+        <p>La misma respuesta de siempre, el cálculo haría que sobresalgan del contenedor principal, desplazando la tercera tarjeta.</p>
+    </section>
+</main>
 
 
 </body>
