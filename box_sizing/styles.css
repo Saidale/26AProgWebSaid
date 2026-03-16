@@ -1,0 +1,28 @@
+body {
+    font-family: Arial;
+    background: #f4f4f4;
+}
+
+h1 {
+    text-align: center;
+}
+
+.contenedor {
+    width: 906px;
+    margin: auto;
+    border: 3px solid black;
+    background: white;
+}
+
+.card {
+    width: 300px;
+    padding: 20px;
+    border: 10px solid steelblue;
+    float: left;
+    background: #e6f2ff;
+    outline: 3px dashed red;
+}
+
+button {
+    padding: 10px;
+}
