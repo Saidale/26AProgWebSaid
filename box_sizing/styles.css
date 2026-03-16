@@ -23,11 +23,8 @@ h1 {
 
 .card {
     width: 33.33%;
-    padding: 30px;
-    border: 15px solid steelblue;
-    float: left;
-    background: #e6f2ff;
-    outline: 3px dashed red;
+    padding: 50px;
+    border: 25px solid red;
 }
 
 button {
