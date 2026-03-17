@@ -106,7 +106,7 @@ tr.highlight {
  border-image: linear-gradient(45deg, red, blue) 1;
  padding: 20px;
 }
-
+ 
 .btn:hover {
   background: linear-gradient(to right, #7ebee9, #17c434); 
   transition: 0.3s;
@@ -124,7 +124,7 @@ tr.highlight {
 
 .borde-animado {
   position: relative;
-  background: #222; /* El color de fondo de tu caja */
+  background: #222; 
   border-radius: 10px;
   padding: 20px;
   z-index: 1;
