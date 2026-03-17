@@ -43,3 +43,9 @@ body {
  font-family: Arial, sans-serif;
 }
 
+/* 5. Texto gradiente */
+.texto-gradiente {
+ background: linear-gradient(45deg, #f06, #f90);
+ -webkit-background-clip: text;
+ color: transparent;
+}
