@@ -26,3 +26,14 @@ header {
  color: white;
  text-decoration: none;
 }
+
+/* 3. Botón */
+.btn {
+ background: linear-gradient(to right, #ff416c, #ff4b2b);
+ border: none;
+ padding: 10px 20px;
+ color: white;
+ cursor: pointer;
+}
+
+
