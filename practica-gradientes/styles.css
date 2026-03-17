@@ -87,4 +87,15 @@ li::before {
 }
 
 
+/* 8. Tabla */
+th {
+ background: linear-gradient(to right, #4facfe, #00f2fe);
+ color: white;
+}
+
+tr.highlight {
+ background: linear-gradient(to right, #43e97b, #38f9d7);
+}
+
+
 
