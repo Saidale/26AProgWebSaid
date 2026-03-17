@@ -6,4 +6,23 @@ header {
  text-align: center;
 }
 
-  
+.caja {
+ background: linear-gradient(to right, #ff7e5f, #feb47b);
+ padding: 20px;
+ margin-top: 10px;
+}
+
+
+/* 2. Inline */
+.inline {
+ background: radial-gradient(circle, yellow, orange);
+ padding: 5px;
+}
+
+.link-gradiente {
+ display: inline-block;
+ background: linear-gradient(to right, cyan, blue);
+ padding: 5px 10px;
+ color: white;
+ text-decoration: none;
+}
