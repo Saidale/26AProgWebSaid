@@ -67,4 +67,24 @@ body {
  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
 }
 
+/* 7. Lista */
+li {
+ list-style: none;
+ position: relative;
+ padding-left: 20px;
+ margin-bottom: 5px;
+}
+
+li::before {
+ content: "";
+ position: absolute;
+ left: 0;
+ top: 5px;
+ width: 10px;
+ height: 10px;
+ background: linear-gradient(45deg, purple, cyan);
+ border-radius: 50%;
+}
+
+
 
