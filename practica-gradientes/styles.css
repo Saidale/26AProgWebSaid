@@ -49,3 +49,10 @@ body {
  -webkit-background-clip: text;
  color: transparent;
 }
+
+/* 6. Imagen overlay */
+.img-container {
+ position: relative;
+ display: inline-block;
+}
+
