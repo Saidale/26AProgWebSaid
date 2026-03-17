@@ -97,5 +97,12 @@ tr.highlight {
  background: linear-gradient(to right, #43e97b, #38f9d7);
 }
 
+/* 9. Bordes */
+.borde-gradiente {
+ border: 5px solid;
+ border-image: linear-gradient(45deg, red, blue) 1;
+ padding: 20px;
+}
+
 
 
