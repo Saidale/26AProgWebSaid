@@ -36,4 +36,10 @@ header {
  cursor: pointer;
 }
 
+/* 4. Fondo general */
+body {
+ background: conic-gradient(from 90deg, red, yellow, green, blue);
+ min-height: 100vh;
+ font-family: Arial, sans-serif;
+}
 
