@@ -1,13 +1,13 @@
 /* 1. Bloques */
 header {
- background: linear-gradient(135deg, #667eea, #764ba2);
+ background: radial-gradient(circle at center, #667eea, #764ba2);
  color: white;
  padding: 20px;
  text-align: center;
 }
 
 .caja {
- background: linear-gradient(to right, #ff7e5f, #feb47b);
+ background: linear-gradient(100deg, #ff7e5f, #feb47b);
  padding: 20px;
  margin-top: 10px;
 }
@@ -41,6 +41,8 @@ body {
  background: conic-gradient(from 90deg, red, yellow, green, blue);
  min-height: 100vh;
  font-family: Arial, sans-serif;
+ background-size: 400% 400%; 
+ animation: movimientoGradiente 2.5s ease infinite;
 }
 
 /* 5. Texto gradiente */
@@ -54,6 +56,7 @@ body {
 .img-container {
  position: relative;
  display: inline-block;
+ opacity: 0%;
 }
 
 .img-container img {
@@ -104,5 +107,59 @@ tr.highlight {
  padding: 20px;
 }
 
+.btn:hover {
+  background: linear-gradient(to right, #7ebee9, #17c434); 
+  transition: 0.3s;
+}
 
+@keyframes movimientoGradiente {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
+.img-container:hover {
+    opacity: 100%;
+}
+
+.borde-animado {
+  position: relative;
+  background: #222; /* El color de fondo de tu caja */
+  border-radius: 10px;
+  padding: 20px;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.borde-animado::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(#f06, #f90, #00f2fe, #f06);
+  animation: rotar 4s reverse infinite;
+  z-index: -1;
+}
+
+@keyframes rotar {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.capas-multiples {
+  background: 
+  radial-gradient(circle, rgba(235, 8, 8, 0.2) 2px, transparent 2px), 
+  linear-gradient(45deg, #4facfe, #00f2fe);                           
+  background-size: 20px 20px, 100% 100%;
+  padding: 40px;
+}
+
+.resaltado-gradiente {
+  background: linear-gradient(90deg, #ff7e5f, #feb47b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+}
