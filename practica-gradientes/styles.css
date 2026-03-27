@@ -57,6 +57,7 @@ body {
  position: relative;
  display: inline-block;
  opacity: 0%;
+ cursor: cell;
 }
 
 .img-container img {
