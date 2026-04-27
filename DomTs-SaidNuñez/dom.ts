@@ -3,7 +3,7 @@ const html: string = await Bun.file("index.html").text()
 const dom: JSDOM = new JSDOM(html)
 const document: Document = dom.window.document
 
-//Borrar 
+//Borrar  
 document.body.innerHTML= "";
 
 
