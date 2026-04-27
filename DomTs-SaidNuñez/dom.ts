@@ -40,7 +40,7 @@ for (const tech of technologies) {
 //Agrando un boton en el body
 const buttonId: HTMLButtonElement = document.createElement("button")
 
-buttonId.textContent = "Haz clic"
+buttonId.textContent = "VALE CAGADAAAAAAAAAAAAAAA"
 buttonId.id = "mainButton"
 buttonId.classList.add("primary")
 buttonId.setAttribute("onclick", "alert('xdxxd')");
