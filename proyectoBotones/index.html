@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .fake-button {
+      display: inline-block;
+      cursor: pointer;
+      padding: 10px 20px;
+      margin: 5px;
+      border: 2px solid #333;
+      border-radius: 6px;
+      background-color: #f0f0f0;
+      font-family: sans-serif;
+      transition: all 0.2s ease;
+      user-select: none;
+      text-align: center;
+    }
+    .fake-button:hover {
+      background-color: #e0e0e0;
+      border-color: #007bff;
+    }
+    .fake-button:active {
+      transform: scale(0.95);
+      background-color: #ccc;
+    }
+    img.fake-button {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+  <script type="module" src="./dist/main.js"></script>
+</body>
+
+</html>
