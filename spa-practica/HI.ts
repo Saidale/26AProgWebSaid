@@ -37,7 +37,7 @@ let button3 = createButtonEvP("console", "03", "clb", {
   event: "click",
   handler: () => { console.log("evento ejecutado"); }
 });
-
+   
 
 let bx = createInjectorButton(
   "Inyectar HTML",
