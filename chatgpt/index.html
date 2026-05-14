@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT </title>
+    <script type="module" src="./dist/main.js" defer></script>
+
+
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            display: grid;
+            background-color: #f0f0f0f0;
+            place-content: center;
+            height: 100dvh;
+        }
+
+        #app {
+            width: 400px;
+            max-width: 100%;
+            height: 70dvh;
+
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 8px;
+            margin-bottom: 16px;
+            overflow-y: auto;
+            scroll-behavior: smooth;
+
+        }
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+            padding: 0;
+
+        }
+
+        .message {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            margin: 4px 0;
+            padding: 4px 8px;
+            
+            span {
+                width: 36px;
+                height: 36px;
+                background: #eee;
+                font-size: 12px;
+                font-weight: 500;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 999999px;
+                }
+
+            p {
+                border-radius: 4px;
+                padding: 4px 8px;
+            }
+
+            &.user {
+                align-self: flex-end;
+                align-items: flex-end;
+                align-self: flex-end;
+                span, p {
+                    background-color: rgb(130, 130, 236);
+                }
+            }
+
+            &.bot {
+                align-self: flex-start;
+                span, p {
+                    background-color: rgb(240, 215, 146);
+                }
+            }
+        }
+
+       form {
+        display: flex;
+
+        input {
+            border-radius: 999999px;
+            flex-grow: 1;
+            border: 0;
+            padding: 8px;
+            margin-right: 8px;
+            border: 1px solid #ccc;
+         }
+
+         button {
+            background-color: #e13030;
+            border: 0;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            padding: 8px;
+            transition: background .3s ease;
+
+            &:hover {
+                background-color: blue;
+            }
+
+            &[disabled] {
+                background-color: #ccc;
+                opacity: 0.6;
+                pointer-events: none ;
+            }
+         }
+
+       } 
+
+       small {
+        font-size: 10px;
+        color: #555;
+        position: fixed;
+        bottom: 10px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 100px;
+
+       }
+
+    </style>
+</head>
+<body>
+
+    <main id="app">
+    </main>
+    
+  
+</body>
+
+</html>

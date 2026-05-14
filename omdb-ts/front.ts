@@ -73,7 +73,7 @@ getMovieByIMBDId('tt3896198')
     .catch(error => {
         const app = document.getElementById('app');
         if(app) {
-            app.innerHTML = `<p> style='color:red;'> Error: ${error.message} </p>`;
+            app.innerHTML = `<p> style='color: red;'> Error: ${error.message} </p>`;
         }
     })
 
