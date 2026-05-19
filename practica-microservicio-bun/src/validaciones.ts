@@ -5,7 +5,5 @@ export function validarUsuario(data: any) {
         errores.push("El campo 'nombre' es requerido y debe ser texto.");
     }
 
-    // Eliminamos la validación del email porque tu tabla no lo requiere
-
     return errores;
 }

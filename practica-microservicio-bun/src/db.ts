@@ -1,7 +1,7 @@
 import { Client } from "pg";
 
 const client = new Client({
-    host: "host.docker.internal",
+    host: "postgres",
     port: 5432,
     user: "admin",
     password: "admin123",

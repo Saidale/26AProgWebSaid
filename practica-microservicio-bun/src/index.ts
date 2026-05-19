@@ -2,7 +2,7 @@ import client from "./db.ts";
 import { logRequest } from "./loggers.ts";
 import { validarUsuario } from "./validaciones.ts";
 
-// Definimos la estructura de los datos que esperamos recibir
+
 interface UsuarioBody {
     nombre: string;
 }
@@ -10,22 +10,30 @@ interface UsuarioBody {
 const server = Bun.serve({
     port: 3000,
     async fetch(req) {
-        // 1. Registrar la petición en la consola
+      
         logRequest(req);
 
         const url = new URL(req.url);
         const method = req.method;
         const path = url.pathname;
 
-        // 2. Endpoint /health para verificar que el servidor está vivo
+
+        if(path  === '/') {
+            return new Response("Bienvenido")
+        }
+
+       //GET status del servidor
+       //Comando de ejecuion: curl -Method GET -Uri "http://localhost:3000/health" 
         if (method === "GET" && path === "/health") {
             return Response.json({ status: "OK", uptime: process.uptime() });
         }
 
-        // 3. GET /usuarios - Obtener todos los usuarios
+      //GET USUARIOS (consultar todos los usuarios)
+      //Comando de ejecucion: curl -Method GET -Uri "http://localhost:3000/usuarios" | Select-Object -ExpandProperty Content
+      
         if (method === "GET" && path === "/usuarios") {
             try {
-                const result = await client.query("SELECT * FROM usuarios ORDER BY id ASC");
+                const result = await client.query("SELECT * FROM usuarios");
                 return Response.json(result.rows);
             } catch (error) {
                 console.error("Error en BD:", error);
@@ -33,44 +41,74 @@ const server = Bun.serve({
             }
         }
 
-        // 4. PUT /usuarios/:id - Actualizar un usuario existente
-        // Usamos una expresión regular para detectar rutas como /usuarios/1, /usuarios/2, etc.
-        const putMatch = path.match(/^\/usuarios\/(\d+)$/);
-        
-        if (method === "PUT" && putMatch) {
-            const id = putMatch[1]; // El ID extraído de la URL
-
+        //GET USUARIO (consultar un usuario por su ID)
+        //Comando de ejecucion: curl -Method GET -Uri "http://localhost:3000/usuarios/3" | Select-Object -ExpandProperty Content
+        if (method === "GET" && path.startsWith("/usuarios/")) {
             try {
-                // Obtenemos el JSON del cuerpo de la petición
-                const body = await req.json() as UsuarioBody;
-
-                // Validamos que el nombre sea correcto
-                const errores = validarUsuario(body);
-                if (errores.length > 0) {
-                    return Response.json({ errores }, { status: 400 });
-                }
-
-                // Ejecutamos el UPDATE solo para el campo 'nombre'
-                const result = await client.query(
-                    "UPDATE usuarios SET nombre = $1 WHERE id = $2 RETURNING *",
-                    [body.nombre, id]
-                );
-
-                // Si no se actualizó ninguna fila, significa que el ID no existe
-                if (result.rowCount === 0) {
-                    return Response.json({ mensaje: "Usuario no encontrado" }, { status: 404 });
-                }
-
-                // Devolvemos el usuario ya actualizado
-                return Response.json(result.rows[0]);
-
+                const id = path.split('/')[2];
+                const result = await client.query("SELECT * FROM usuarios WHERE id = $1", [id]);
+                return Response.json(result.rows);
             } catch (error) {
-                console.error("Error procesando la solicitud:", error);
-                return Response.json({ error: "Datos inválidos o malformados" }, { status: 400 });
+                console.error("Error en BD:", error);
+                return new Response("Error interno del servidor", { status: 500 });
             }
         }
 
-        // 5. Manejo de rutas no encontradas (404)
+        //DELETE usuario 
+        ////Comando de ejecucion: curl -Method DELETE -Uri "http://localhost:3000/usuarios/IDUSUARIO"
+        if (method === "DELETE" && path.startsWith("/usuarios/")) {
+            try {
+                const id = path.split('/')[2];
+                await client.query("DELETE FROM usuarios WHERE id = $1", [id]);
+                return new Response('Usuario eliminado');
+            } catch (error) {
+                console.error("Error en BD:", error);
+                return new Response("Error interno del servidor", { status: 500 });
+            }
+        }
+
+        
+
+        //PUT  Actualizar un usuario 
+        //Comando de ejecucion: curl -X PUT http://localhost:3000/usuarios/IDUSUARIO \  -H "Content-Type: application/json" \  -d '{"nombre": "nombre a editar"}'
+       if (method === "PUT" && path.startsWith("/usuarios/")) {
+            try {
+                
+                const id = path.split("/")[2]; 
+
+                if (!id) {
+                    return new Response("ID de usuario no proporcionado", { status: 400 });
+                }
+
+                const body = await req.json() as UsuarioBody;
+                const { nombre } = body; // Solo extraemos el nombre
+
+                if (!nombre) {
+                    return new Response("El campo nombre es obligatorio", { status: 400 });
+                }
+
+                const query = `
+                    UPDATE usuarios 
+                    SET nombre = $1 
+                    WHERE id = $2 
+                    RETURNING *;
+                `;
+                
+                const result = await client.query(query, [nombre, id]);
+
+                // Verificar si el usuario existía
+                if (result.rowCount === 0) {
+                    return new Response("Usuario no encontrado", { status: 404 });
+                }
+
+                return Response.json(result.rows[0]);
+
+            } catch (error) {
+                console.error("Error en BD al actualizar:", error);
+                return new Response("Error interno del servidor", { status: 500 });
+            }
+}
+
         return new Response("Not Found", { status: 404 });
     }
 });
