@@ -67,6 +67,33 @@ const server = Bun.serve({
             }
         }
 
+        //POST - Crear un nuevo usuario
+        //Comando de ejecucion en PowerShell: curl -Method POST -Uri "http://localhost:3000/usuarios" -Headers @{"Content-Type"="application/json"} -Body '{"nombre": "chihuahua"}' | Select-Object -ExpandProperty Content
+        //Comando de ejecucion en Linux/Vagrant: curl -X POST http://localhost:3000/usuarios -H "Content-Type: application/json" -d '{"nombre": "chihuahua"}'
+        if (method === "POST" && path === "/usuarios") {
+            try {
+                const body = await req.json() as UsuarioBody;
+                const { nombre } = body;
+
+                if (!nombre) {
+                    return new Response("El campo nombre es obligatorio", { status: 400 });
+                }
+
+                const query = `
+                    INSERT INTO usuarios (nombre) 
+                    VALUES ($1) 
+                    RETURNING *;
+                `;
+
+                const result = await client.query(query, [nombre]);
+                return Response.json(result.rows[0], { status: 201 });
+
+            } catch (error) {
+                console.error("Error en BD al insertar:", error);
+                return new Response("Error interno del servidor", { status: 500 });
+            }
+        }
+
         
 
         //PUT  Actualizar un usuario 
