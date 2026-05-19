@@ -24,13 +24,15 @@ const server = Bun.serve({
 
        //GET status del servidor
        //Comando de ejecuion: curl -Method GET -Uri "http://localhost:3000/health" 
+       //Comando Linux/Vagrant: curl -X GET http://localhost:3000/health
         if (method === "GET" && path === "/health") {
             return Response.json({ status: "OK", uptime: process.uptime() });
         }
 
       //GET USUARIOS (consultar todos los usuarios)
       //Comando de ejecucion: curl -Method GET -Uri "http://localhost:3000/usuarios" | Select-Object -ExpandProperty Content
-      
+      //curl -X GET http://localhost:3000/usuarios
+
         if (method === "GET" && path === "/usuarios") {
             try {
                 const result = await client.query("SELECT * FROM usuarios");
@@ -43,6 +45,7 @@ const server = Bun.serve({
 
         //GET USUARIO (consultar un usuario por su ID)
         //Comando de ejecucion: curl -Method GET -Uri "http://localhost:3000/usuarios/3" | Select-Object -ExpandProperty Content
+        //Comando Linux/Vagrant: curl -X GET http://localhost:3000/usuarios/3
         if (method === "GET" && path.startsWith("/usuarios/")) {
             try {
                 const id = path.split('/')[2];
@@ -56,6 +59,7 @@ const server = Bun.serve({
 
         //DELETE usuario 
         ////Comando de ejecucion: curl -Method DELETE -Uri "http://localhost:3000/usuarios/IDUSUARIO"
+        //Comando Linux/Vagrant: curl -X DELETE http://localhost:3000/usuarios/3
         if (method === "DELETE" && path.startsWith("/usuarios/")) {
             try {
                 const id = path.split('/')[2];
