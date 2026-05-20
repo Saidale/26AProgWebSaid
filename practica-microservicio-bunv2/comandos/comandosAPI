@@ -1,0 +1,50 @@
+#---------------------------USUARIOS----------------------------------------------------------
+# GET - Consultar todos los usuarios
+curl -Method GET -Uri "http://localhost:3000/usuarios" | Select-Object -ExpandProperty Content
+
+# POST - Crear un nuevo usuario
+curl -Method POST -Uri "http://localhost:3000/usuarios" -Headers @{"Content-Type"="application/json"} -Body '{"nombre": "Luis", "email": "luis@test.com"}' | Select-Object -ExpandProperty Content
+
+# GET por ID - Consultar el usuario creado (ejemplo con ID 1)
+curl -Method GET -Uri "http://localhost:3000/usuarios/1" | Select-Object -ExpandProperty Content
+
+# PUT - Actualizar el usuario (ejemplo con ID 1)
+curl -Method PUT -Uri "http://localhost:3000/usuarios/1" -Headers @{"Content-Type"="application/json"} -Body '{"nombre": "Luis Editado", "email": "luis_nuevo@test.com"}' | Select-Object -ExpandProperty Content
+
+# DELETE - Eliminar el usuario (ejemplo con ID 1)
+curl -Method DELETE -Uri "http://localhost:3000/usuarios/1"
+
+#------------------------------PROFESORES-------------------------------------------
+
+# GET - Consultar todos los profesores
+curl -Method GET -Uri "http://localhost:3000/profesor" | Select-Object -ExpandProperty Content
+
+# POST - Crear un nuevo profesor
+curl -Method POST -Uri "http://localhost:3000/profesor" -Headers @{"Content-Type"="application/json"} -Body '{"nombre": "Carlos", "especialidad": "Matemáticas", "telefono_Contacto": "5551234", "fecha_ingreso": "2026-05-20"}' | Select-Object -ExpandProperty Content
+
+# GET por ID - Consultar el profesor creado (ejemplo con ID 1)
+curl -Method GET -Uri "http://localhost:3000/profesor/1" | Select-Object -ExpandProperty Content
+
+# PUT - Actualizar el profesor (ejemplo con ID 1)
+curl -Method PUT -Uri "http://localhost:3000/profesor/4" -Headers @{"Content-Type"="application/json"} -Body '{"nombre": "Carlos Modificado", "especialidad": "Física", "telefono_Contacto": "5559999", "fecha_ingreso": "2026-05-20"}' | Select-Object -ExpandProperty Content
+
+# DELETE - Eliminar el profesor (ejemplo con ID 1)
+curl -Method DELETE -Uri "http://localhost:3000/profesor/1"
+
+
+#-------------------------------AULAS------------------------------------------------------------
+
+# GET - Consultar todas las aulas
+curl -Method GET -Uri "http://localhost:3000/aula" | Select-Object -ExpandProperty Content
+
+# POST - Crear una nueva aula
+curl -Method POST -Uri "http://localhost:3000/aula" -Headers @{"Content-Type"="application/json"} -Body '{"numero_aula": 10, "piso_edificio": "PISO 3 EDIFICIO 2", "capacidad_maxima": 35, "tipo_aula": "LABORATORIO"}' | Select-Object -ExpandProperty Content
+
+# GET por ID - Consultar el aula creada (ejemplo con ID 1)
+curl -Method GET -Uri "http://localhost:3000/aula/1" | Select-Object -ExpandProperty Content
+
+# PUT - Actualizar el aula (ejemplo con ID 1)
+curl -Method PUT -Uri "http://localhost:3000/aula/1" -Headers @{"Content-Type"="application/json"} -Body '{"numero_aula": 12, "piso_edificio": "PISO 1 EDIFICIO 1", "capacidad_maxima": 40, "tipo_aula": "TALLER"}' | Select-Object -ExpandProperty Content
+
+# DELETE - Eliminar el aula (ejemplo con ID 1)
+curl -Method DELETE -Uri "http://localhost:3000/aula/1"

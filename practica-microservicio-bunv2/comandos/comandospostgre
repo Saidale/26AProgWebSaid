@@ -1,0 +1,50 @@
+docker exec -it postgres_practica psql -U admin -d escuela
+
+Crear tabla usuarios
+CREATE TABLE usuarios (
+
+    id SERIAL PRIMARY KEY,
+
+    nombre VARCHAR(100),
+
+    email VARCHAR(100)
+
+);
+
+Insertar registros
+INSERT INTO usuarios(nombre, email)
+VALUES
+('Juan', 'juan@test.com'),
+('Ana', 'ana@test.com'),
+('Carlos', 'carlos@test.com');
+
+
+CREATE TABLE aula (
+    id SERIAL PRIMARY KEY,
+    numero_aula  SMALLINT,
+    piso_edificio VARCHAR(30),
+    capacidad_maxima SMALLINT,
+    tipo_aula VARCHAR(30)
+
+);
+
+INSERT INTO aula (numero_aula, piso_edificio, capacidad_maxima, tipo_aula) 
+VALUES 
+(3, 'PISO 1 EDIFICIO 1', 40, 'TALLER'),
+(5, 'PISO 2 EDIFICIO 3', 30, 'REGULAR'),
+(8, 'PISO 2 EDIFICIO 3', 40, 'LABORATORIO');
+
+
+CREATE TABLE profesor (
+    id SERIAL PRIMARY KEY,
+    nombre VARCHAR(120),
+    especialidad VARCHAR(40),
+    telefono_contacto VARCHAR(12),
+    fecha_ingreso DATE
+);
+
+
+INSERT INTO profesor (nombre, especialidad, telefono_contacto, fecha_ingreso) VALUES 
+('Juan Pérez', 'Matemáticas', '322632478', '2026-05-20'),
+('María López', 'Historia', '322145365', '2026-02-15'),
+('Carlos Mendoza', 'Física', '3226549874', '2025-11-01');
