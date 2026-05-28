@@ -1,0 +1,14 @@
+# 1. CREAR UN PASAJERO 
+curl -Method POST -Uri "http://localhost:3001/pasajeros" -Headers @{"Content-Type"="application/json"} -Body '{"nombre": "Luis", "correo": "luis@test.com"}' | Select-Object -ExpandProperty Content
+
+# 2. OBTENER TODOS LOS PASAJEROS 
+curl -Method GET -Uri "http://localhost:3001/pasajeros" | Select-Object -ExpandProperty Content
+
+# 3. OBTENER UN PASAJERO POR ID 
+curl -Method GET -Uri "http://localhost:3001/pasajeros/1" | Select-Object -ExpandProperty Content
+
+# 4. ACTUALIZAR UN PASAJERO 
+curl -Method PUT -Uri "http://localhost:3001/pasajeros/1" -Headers @{"Content-Type"="application/json"} -Body '{"nombre": "Luis Alberto", "correo": "luisalberto@test.com"}' | Select-Object -ExpandProperty Content
+
+# 5. ELIMINAR UN PASAJERO 
+curl -Method DELETE -Uri "http://localhost:3001/pasajeros/1" | Select-Object -ExpandProperty Content

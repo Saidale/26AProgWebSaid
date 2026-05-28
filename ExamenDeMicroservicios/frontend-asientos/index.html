@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Asientos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h2>Reservar Nuevo Asiento</h2>
+    
+    <div class="form-card">
+      <form id="formAsiento">
+        <div class="form-group">
+          <label for="nombreUsuario">Nombre de Usuario</label>
+          <input type="text" id="nombreUsuario" required>
+        </div>
+
+        <div class="form-group">
+          <label for="nombreProducto">Vuelo / Producto</label>
+          <input type="text" id="nombreProducto" required>
+        </div>
+
+        <div class="form-group">
+          <label for="cantidad">Cantidad de Asientos</label>
+          <input type="number" id="cantidad" min="1" required>
+        </div>
+
+        <button type="submit">Guardar Asiento</button>
+      </form>
+    </div>
+
+    <p id="mensaje"></p>
+
+    <h2>Lista de Asientos Reservados</h2>
+    <div id="listaAsientos"></div>
+  </div>
+
+  <script src="dist/index.js"></script>
+</body>
+</html>

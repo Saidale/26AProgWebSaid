@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestión de Pasajeros</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="dist/index.js" type="module"></script>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Registrar Pasajero</h2>
+    
+    <form id="formPasajero" class="form-card">
+      <div class="form-group">
+        <label for="nombre">Nombre Completo:</label>
+        <input type="text" id="nombre" required placeholder="Ej. Juan Pérez">
+      </div>
+      <div class="form-group">
+        <label for="correo">Correo Electrónico:</label>
+        <input type="email" id="correo" required placeholder="juan@correo.com">
+      </div>
+      <button type="submit">Guardar Pasajero</button>
+    </form>
+
+    <p id="mensaje"></p>
+
+    <h2>Pasajeros Registrados</h2>
+    <div id="listaPasajeros" class="pasajeros-lista"></div>
+  </div>
+
+
+</body>
+</html>

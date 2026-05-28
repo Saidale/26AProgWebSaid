@@ -1,0 +1,22 @@
+CREATE TABLE IF NOT EXISTS pasajeros (
+    id SERIAL PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    correo VARCHAR(100) NOT NULL, 
+    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS vuelos (
+    id SERIAL PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL, 
+    precio DECIMAL(10,2) NOT NULL, 
+    stock INTEGER NOT NULL,        
+    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS asientos (
+    id SERIAL PRIMARY KEY,
+    nombre_usuario VARCHAR(100) NOT NULL,  
+    nombre_producto VARCHAR(100) NOT NULL, 
+    cantidad INTEGER NOT NULL,             
+    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
