@@ -4,8 +4,8 @@
   "type": "module",
   "scripts": {
     "build": "bun build ./src/index.ts --outfile=./dist/index.js",
-    "dev": "bun run build && bunx serve . -l tcp://0.0.0.0:5172",
-    "start": "bun run build && bunx serve . -l tcp://0.0.0.0:5172"
+    "dev": "bun run build && bunx serve . -l tcp://0.0.0.0:5171",
+    "start": "bun run build && bunx serve . -l tcp://0.0.0.0:5171"
   },
   "devDependencies": {}
-}    
+}
