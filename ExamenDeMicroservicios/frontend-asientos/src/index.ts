@@ -3,7 +3,7 @@ interface Asiento {
   nombre_usuario: string;
   nombre_producto: string;
   cantidad: number;
-  fecha_creacion?: string;
+  fecha_creacion?: string;  
 }
 
 const API_URL = "http://localhost:3003/asientos";
