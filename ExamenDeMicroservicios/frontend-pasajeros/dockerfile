@@ -12,4 +12,4 @@ RUN bun build ./src/index.ts --outfile=./dist/index.js
 
 EXPOSE 5171
 
-CMD ["bunx", "serve", ".", "-l", "tcp://0.0.0.0:5172"]
+CMD ["bunx", "serve", ".", "-l", "tcp://0.0.0.0:5171"]
